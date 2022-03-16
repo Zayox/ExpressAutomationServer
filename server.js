@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
 
 app.post("/clear", async (req, res) => {
     try{
-        const browser = await puppeteer.launch({headless: true, defaultViewport: null});
+        const browser = await puppeteer.launch({headless: true, args:['--no-sandbox']});
         const [page] = await browser.pages();
         const url = "https://www.instagram.com/?hl=en";
         await page.goto(url);
