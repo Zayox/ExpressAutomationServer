@@ -7,7 +7,7 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
-app.post("/", async (req, res) => {
+app.post("/clear", async (req, res) => {
     try{
         const browser = await puppeteer.launch({headless: true, defaultViewport: null});
         const [page] = await browser.pages();
@@ -31,7 +31,7 @@ app.post("/", async (req, res) => {
         await page.waitForSelector('[class="aOOlW  bIiDR  "]');
         await page.click('[class="aOOlW  bIiDR  "]');
         await console.log("done ez");
-        await res.send("Welcome to Social Shadow server");
+        await res.send("WHAT IS GOING ON");
         return res.status(200).send("done bro");
         res.json({
             success: true
