@@ -7,6 +7,10 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+    res.send("WHAT IS GOING ON");
+})
+
 app.post("/clear", async (req, res) => {
     try{
         const browser = await puppeteer.launch({headless: true, defaultViewport: null});
@@ -31,7 +35,6 @@ app.post("/clear", async (req, res) => {
         await page.waitForSelector('[class="aOOlW  bIiDR  "]');
         await page.click('[class="aOOlW  bIiDR  "]');
         await console.log("done ez");
-        await res.send("WHAT IS GOING ON");
         return res.status(200).send("done bro");
         res.json({
             success: true
