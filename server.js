@@ -6,8 +6,9 @@ require('dotenv').config();
 const app = express();
 const PORT = 3000;
 
-app.use("/static", express.static(__dirname));app.use(cors());
+app.use(cors());
 app.use(express.json());
+app.use("/static", express.static(__dirname));app.use(cors());
 
 app.post("/clear", async (req, res) => {
     try{
