@@ -35,6 +35,7 @@ app.post("/clear", async (req, res) => {
         await page.waitForSelector('[class="aOOlW  bIiDR  "]');
         await page.click('[class="aOOlW  bIiDR  "]');
         await console.log("done ez");
+        await browser.close();
         return res.status(200).send("done bro");
         res.json({
             success: true
